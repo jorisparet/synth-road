@@ -5,14 +5,10 @@ using UnityEngine.Networking;
 public class Highscores : MonoBehaviour
 {
     string[] privateCode = {
-        "9I4z7dm1HUuAvQzAhSPtmAsiMOwECmEEONy9qCNZNXTA",
-        "IDDL8eyfkUyX6obmhjb9ggH7sm4VDkM0iS4iLsZxq2XA",
-        "pwWEvxseg0ORvkksfTepigBzMBKj0b5UWW0PXHZI-hwA"};
+        "..."};
 
     string[] publicCode = {
-        "62346f248f40bc123c2b39f7",
-        "6234a07f8f40bc123c2bb560",
-        "6234a0848f40bc123c2bb569" };
+        "..." };
 
     string webURL = "http://dreamlo.com/lb/";
 
