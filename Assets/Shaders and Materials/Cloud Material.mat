@@ -89,9 +89,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_0236379110cd4a6381221700dd656238: 171
+    - Vector1_8f146e95436842f4bd091e7381b065d4: -84
     - _AlphaClip: 0
     - _Blend: 0
-    - _BlendHeight: 1.5
+    - _BlendHeight: 2.3
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -104,9 +106,9 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Intensity: 0.3
+    - _Intensity: 0.8
     - _Metallic: 0
-    - _NoiseScale: 20
+    - _NoiseScale: 30
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -121,13 +123,13 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor: {r: 23.968628, g: 0, b: 19.952942, a: 0}
+    - _BottomColor: {r: 14.064198, g: 0, b: 9.570044, a: 15}
     - _CloudColor: {r: 1, g: 0.7294118, b: 0.34509805, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Speed: {r: 0.05, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 5, g: 1, b: 0, a: 0}
+    - _Speed: {r: 0.02, g: 0, b: 0, a: 0}
+    - _Tiling: {r: 4, g: 1, b: 0, a: 0}
     - _Tling: {r: 1, g: 1, b: 0, a: 0}
-    - _TopColor: {r: 5.992157, g: 2.164706, b: 0, a: 0}
+    - _TopColor: {r: 7.1328382, g: 6.7488365, b: 2.7048697, a: 10}
   m_BuildTextureStacks: []

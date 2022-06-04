@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Obstacle Material
-  m_Shader: {fileID: -6465566751694194690, guid: f40778569d26a5b418be6ffbc46f09d9, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 20fbb0813e353a34bb94632f40eefbdd, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -119,10 +119,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_2961c5770dc6424da281ed07cc8099e0: {r: 1.882353, g: 23.968628, b: 0, a: 0}
-    - Vector2_7b3af405205c4402b25b757470a60268: {r: 2, g: 2, b: 0, a: 0}
+    - Color_2961c5770dc6424da281ed07cc8099e0: {r: 0, g: 95.87451, b: 0.18174607, a: 1}
+    - Vector2_7b3af405205c4402b25b757470a60268: {r: 4, g: 3, b: 0, a: 0}
     - _BaseColor: {r: 0.9544314, g: 1, b: 0, a: 1}
     - _Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

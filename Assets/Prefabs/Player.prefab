@@ -1,5 +1,100 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1503079134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503079135}
+  - component: {fileID: 1503079138}
+  - component: {fileID: 1503079137}
+  - component: {fileID: 1503079136}
+  m_Layer: 11
+  m_Name: Force Field
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1503079135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503079134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8895011177098062041}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1503079138
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503079134}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1503079137
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503079134}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a2539908b9dd072469ecb469d2d880e3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &1503079136
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503079134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8895011177098062055
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,7 +112,8 @@ GameObject:
   - component: {fileID: 7483851804887642105}
   - component: {fileID: 1033507533}
   - component: {fileID: 1732544325}
-  m_Layer: 0
+  - component: {fileID: 247564162}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,6 +133,7 @@ Transform:
   m_Children:
   - {fileID: 3678729783431426074}
   - {fileID: 2795923416384089147}
+  - {fileID: 1503079135}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55,13 +152,13 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8895011177098062055}
-  m_Enabled: 1
-  m_CastShadows: 1
+  m_Enabled: 0
+  m_CastShadows: 0
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
@@ -112,12 +209,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_AngularDrag: 0
+  m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 48
-  m_CollisionDetection: 1
+  m_Interpolate: 1
+  m_Constraints: 126
+  m_CollisionDetection: 2
 --- !u!114 &8895011177098062052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,18 +227,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b27e9cf485480459ae81cfed3a441d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  movementSmoothing: 0.075
+  horizontalSpeed: 45
+  mainCamera: {fileID: 0}
+  xBound: 4.75
   explosion: {fileID: 3678729783431426073}
-  explosionSound: {fileID: 8300000, guid: 109676a25d1601b44879adf02afc9bd6, type: 3}
-  explosionSoundSlow: {fileID: 8300000, guid: 0a7bc13fc9d7d9c4ea4a4e8c4c485fcf, type: 3}
-  bonusSound: {fileID: 8300000, guid: 0aa8634675dd7c846aa1dbb198213cf8, type: 3}
+  playerExplosionSound: {fileID: 8300000, guid: f01b3caf791d20f488a8d2c655e96317, type: 3}
+  playerExplosionSoundSlow: {fileID: 8300000, guid: 5c83ff0a9e388ac49b1ce60d53e72525, type: 3}
+  scoreBonusSound: {fileID: 8300000, guid: e92592fd8e75cb04d8595223d68ac080, type: 3}
+  scoreBonusSoundSlow: {fileID: 8300000, guid: 3321f161a49d0324a895421e8da89439, type: 3}
+  invincibilityBonusSound: {fileID: 8300000, guid: 08f3832800f796c48878a28145f94975, type: 3}
+  invincibilityBonusSoundSlow: {fileID: 8300000, guid: 522214058fcb26d428a1f9eedc68671b, type: 3}
+  invincibilityBonusSoundOff: {fileID: 8300000, guid: c81dbd05f0d349e489b7641efae92e25, type: 3}
+  goingFastSound: {fileID: 8300000, guid: 5d3c41aadb944f744b76879e35221830, type: 3}
+  goingFastSoundSlow: {fileID: 8300000, guid: 6ac1aef566c470644a68d5c3b60037c4, type: 3}
+  playerLayer: 7
   obstacleLayer: 6
+  bonusLayer: 8
+  invincibilityLayer: 9
+  forceFieldLayer: 11
   cameraShake: {fileID: 0}
   scoreManager: {fileID: 0}
   mainMenu: {fileID: 0}
+  options: {fileID: 0}
+  active: 0
   hasExploded: 0
+  isInvincible: 0
   bonusCount: 0
+  invincibilityStartTime: 0
+  bonusAS: {fileID: 0}
+  invincibilityAS: {fileID: 0}
+  goingFastAS: {fileID: 0}
+  goingFastSlowAS: {fileID: 0}
 --- !u!114 &7483851804887642105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,11 +270,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1265ec94c2fe36a45b448b0cd89279a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadBar: {fileID: 0}
-  blinkColor: {r: 1, g: 0, b: 0.90096474, a: 1}
-  reloadedSound: {fileID: 8300000, guid: 031fe6a9e8b15a44ebf5583c04b4236a, type: 3}
+  powerButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  powerBarHolder: {fileID: 0}
+  powerReloadBar: {fileID: 0}
+  fullBarColor: {r: 0, g: 0.6820278, b: 1, a: 1}
+  emptyBarColor: {r: 1, g: 0.21044986, b: 0.15471691, a: 1}
+  blinkColor: {r: 0.069811285, g: 1, b: 0.23448578, a: 1}
+  reloadedSound: {fileID: 8300000, guid: 19690608d8239e543abb5c28b328dc05, type: 3}
+  invincibilityBarHolder: {fileID: 0}
+  invincibilityReloadBar: {fileID: 0}
+  numberOfBreakableObstacles: 5
+  globalVolume: {fileID: 0}
+  invincibilityTransition: 0.15
+  targetInvincibilityHue: -50
+  targetInvincibilityDistortion: -0.5
+  targetInvincibilityScaling: 1
   fullBar: 1
+  player: {fileID: 0}
   defaultBarSize: 800
+  audioSource: {fileID: 0}
+  invincibilityDuration: 0
 --- !u!114 &1033507533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,17 +305,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90cb378e4c0dcc44cb877538eab46d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1.25
-  reloadTime: 2.5
+  duration: 2.25
+  reloadTime: 5
+  activateButton: {fileID: 0}
+  unlocked: 0
+  active: 0
+  activated: 0
   targetTimeScale: 0.35
   globalVolume: {fileID: 0}
   targetLensDistorsion: 0.5
-  targetLensScale: 1.2
-  targetChromaticAberration: 0.4
-  lensTransitionTime: 0.3
+  targetLensScale: 1.15
+  initialChromaticAberration: 0.3
+  targetChromaticAberration: 0.6
+  distortTransitionTime: 0.25
+  targetHueShift: 50
   timeSlowSound: {fileID: 8300000, guid: f5ed9fc930081674e9da19f8bece1da5, type: 3}
-  timeFastSound: {fileID: 8300000, guid: d12cea98ab3712d43bdca0f14cdbc4fb, type: 3}
-  activated: 0
+  timeFastSound: {fileID: 8300000, guid: 8c5f85ea9d80ffa4b975500871837567, type: 3}
 --- !u!114 &1732544325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,13 +333,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2784ee81c1de462418a495c0b1fc3bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
-  reloadTime: 4
+  duration: 3.5
+  reloadTime: 5
+  activateButton: {fileID: 0}
+  unlocked: 0
+  active: 0
+  activated: 0
   targetScale: 0.35
   transitionTime: 0.25
   shrinkEffect: {fileID: 6876429366355200467}
-  shrinkSound: {fileID: 8300000, guid: 4ef5e0bc3addfef43ae06ffc5583789a, type: 3}
-  expandSound: {fileID: 8300000, guid: 4343d1e0c092c354993244d2cfe4e9de, type: 3}
+  shrinkSound: {fileID: 8300000, guid: f7d9710ba3b5abc4ca9817373ee97978, type: 3}
+  expandSound: {fileID: 8300000, guid: 842e59d7585fd904ca48ac35fc79352a, type: 3}
+--- !u!114 &247564162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895011177098062055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abd9b9a3abcc73448eaa93169bc30b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.5
+  reloadTime: 9
+  activateButton: {fileID: 0}
+  unlocked: 0
+  active: 0
+  activated: 0
+  rescalingSpeed: 100
+  originalScale: 0.9
+  forceField: {fileID: 1503079134}
+  unlock: 0
+  forceFieldSound: {fileID: 8300000, guid: 9e8bfcd54c12b1f40830bf2382a20189, type: 3}
 --- !u!1001 &7072050878431458979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,6 +430,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Explosion
       objectReference: {fileID: 0}
+    - target: {fileID: 5848348470526674620, guid: d06e100c899498241a2beb2c73c99f6d, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06e100c899498241a2beb2c73c99f6d, type: 3}
 --- !u!4 &3678729783431426074 stripped
@@ -286,6 +456,10 @@ PrefabInstance:
     - target: {fileID: 1566489005910315107, guid: ccf6cb039244457428822f7e1fb720ed, type: 3}
       propertyPath: m_Name
       value: Player Shrink
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566489005910315107, guid: ccf6cb039244457428822f7e1fb720ed, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5301140249151840550, guid: ccf6cb039244457428822f7e1fb720ed, type: 3}
       propertyPath: m_RootOrder

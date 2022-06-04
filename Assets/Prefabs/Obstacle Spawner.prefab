@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5442662460631868727}
-  - component: {fileID: 5442662460631868724}
+  - component: {fileID: 8278546755716201850}
   m_Layer: 0
   m_Name: Obstacle Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5442662460631868727
 Transform:
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5442662460631868724
+--- !u!114 &8278546755716201850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,12 +40,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5442662460631868725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df96a6f892bf44f4c9d06b4a0f15e534, type: 3}
+  m_Script: {fileID: 11500000, guid: 327fa008c2e1a094697d5b37e30a23ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 20
-  delayBetweenSpawn: 0.75
-  spawnPosition: 50
+  scrollSpeed:
+  - 20
+  - 30
+  - 40
+  distancesBetweenSpawns:
+  - 25
+  - 25
+  - 30
+  scrollSpeedMultipliers:
+  - 1.5
+  - 1.33
+  - 1.25
+  spawnPositions:
+  - 35
+  - 45
+  - 55
   obstacles:
   - {fileID: 5242831709465361361, guid: 95cef9788739b884cad0282bc914e6e5, type: 3}
   - {fileID: 3969984854989163162, guid: 19a5a693cbef02c48874a615b25e7a1b, type: 3}
@@ -53,5 +66,24 @@ MonoBehaviour:
   - {fileID: 5242831709465361361, guid: 807d8899122d4bc46ab52246039d5566, type: 3}
   - {fileID: 5242831709465361361, guid: 6a01bb962f351124d8c12574376a3f1f, type: 3}
   - {fileID: 5242831709465361361, guid: a35d9e334a4e9a34db562c047c50f1a6, type: 3}
-  bonusSpawnProbability: 0.35
-  bonus: {fileID: 2658341476008621127, guid: 3e7c3f806aef2834497d347b237e4ead, type: 3}
+  - {fileID: 5242831709465361361, guid: f1a8570a9a21dec4e8e3b7392a9856f1, type: 3}
+  - {fileID: 5242831709465361361, guid: 96552b31f0e1bde49a415e0ffdb19c5c, type: 3}
+  respawnThreshold: 2.5
+  scoreBonusProbability: 0.3
+  invincibilityBonusProbability: 0.1
+  horizontalBonusOffsetAmplitude: 1.25
+  horizontalBonusOffsetAmplitudeInvincibile: 2.5
+  scoreBonus: {fileID: 2658341476008621127, guid: 3e7c3f806aef2834497d347b237e4ead, type: 3}
+  invincibilityBonus: {fileID: 2658341476008621127, guid: a8bf8c4386dbd5f4aadc65e4ebe9d5df, type: 3}
+  player: {fileID: 0}
+  powerManager: {fileID: 0}
+  options: {fileID: 0}
+  active: 0
+  normalScrollSpeed: 0
+  invincibilityScrollSpeed: 0
+  currentScrollSpeed: 0
+  distanceBetweenSpawns: 0
+  delayBetweenSpawnNormal: 0
+  delayBetweenSpawnInvincible: 0
+  currentDelayBetweenSpawn: 0
+  numberOfSpawnedObstacles: 0

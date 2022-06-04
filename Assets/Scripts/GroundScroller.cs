@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class GroundScroller : MonoBehaviour
 {
-    [SerializeField] float roadSpeedMultiplier = 1f;
-    [SerializeField] float edgeSpeedMultiplier = 1f;
+    [SerializeField] float roadSpeedMultiplier = 0.075f;
+    [SerializeField] float edgeSpeedMultiplier = 0.155f;
     [SerializeField] Renderer road;
     [SerializeField] Renderer roadEdge;
-    [SerializeField] ObstacleManager obstacleManager;
+    [SerializeField] MovableSpawner obstacleManager;
 
     bool active = false;
     string _RoadOffset = "_Offset";
@@ -18,8 +18,8 @@ public class GroundScroller : MonoBehaviour
     public void Initialize()
     {
         active = true;
-        road.material.SetVector(_RoadOffset, Vector2.zero);
-        roadEdge.material.SetVector(_EdgeOffset, Vector2.zero);
+        road.sharedMaterial.SetVector(_RoadOffset, Vector2.zero);
+        roadEdge.sharedMaterial.SetVector(_EdgeOffset, Vector2.zero);
     }
 
     void Update()
@@ -30,12 +30,12 @@ public class GroundScroller : MonoBehaviour
 
     private void Scroll()
     {
-        offset = Vector2.down * obstacleManager.scrollSpeed * Time.deltaTime;
+        offset = Vector2.down * obstacleManager.currentScrollSpeed * Time.deltaTime;
 
-        currentRoadOffset = road.material.GetVector(_RoadOffset);
-        road.material.SetVector(_RoadOffset, currentRoadOffset + roadSpeedMultiplier * offset);
+        currentRoadOffset = road.sharedMaterial.GetVector(_RoadOffset);
+        road.sharedMaterial.SetVector(_RoadOffset, currentRoadOffset + roadSpeedMultiplier * offset);
 
-        currentEdgeOffset = roadEdge.material.GetVector(_EdgeOffset);
-        roadEdge.material.SetVector(_EdgeOffset, currentEdgeOffset + edgeSpeedMultiplier * offset);
+        currentEdgeOffset = roadEdge.sharedMaterial.GetVector(_EdgeOffset);
+        roadEdge.sharedMaterial.SetVector(_EdgeOffset, currentEdgeOffset + edgeSpeedMultiplier * offset);
     }
 }

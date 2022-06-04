@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7147645601082932069
 Transform:
@@ -46,5 +46,16 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   scoreMultiplierText: {fileID: 0}
   newHighscoreText: {fileID: 0}
+  currentHighscoreText: {fileID: 0}
+  easyHighscoreText: {fileID: 0}
+  mediumHighscoreText: {fileID: 0}
+  hardHighscoreText: {fileID: 0}
   baseMultiplier: 15
   player: {fileID: 0}
+  menu: {fileID: 0}
+  options: {fileID: 0}
+  CURRENT_HIGHSCORE: 
+  EASY_HIGHSCORE: EasyHighscore
+  MEDIUM_HIGHSCORE: MediumHighscore
+  HARD_HIGHSCORE: HardHighscore
+  currentHighscore: 0

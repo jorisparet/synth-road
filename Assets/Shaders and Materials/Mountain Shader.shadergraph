@@ -432,10 +432,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
+            "x": 194.39996337890626,
+            "y": 277.6000671386719,
+            "width": 200.00001525878907,
+            "height": 40.79998779296875
         }
     },
     "m_Slots": [
@@ -1183,7 +1183,7 @@
     },
     "m_Name": "Shine Color",
     "m_DefaultReferenceName": "Color_da2ea0475a05430bb2d53715e38d5f7f",
-    "m_OverrideReferenceName": "_ShineCOlor",
+    "m_OverrideReferenceName": "_ShineColor",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,

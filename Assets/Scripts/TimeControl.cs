@@ -2,49 +2,51 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
-public class TimeControl : MonoBehaviour
+public class TimeControl : Power
 {
+    [Header("Power-specific Settings")]
+
     // Main features
-    [SerializeField] float duration = 4f;
-    [SerializeField] float reloadTime = 5f;
     [SerializeField] float targetTimeScale = 0.35f;
+
     // Lens distorsion
     [SerializeField] Volume globalVolume;
     [SerializeField] float targetLensDistorsion = 0.5f;
-    [SerializeField] float targetLensScale = 1.2f;
+    [SerializeField] float targetLensScale = 1.5f;
+    [SerializeField] float initialChromaticAberration = 0.3f;
     [SerializeField] float targetChromaticAberration = 0.5f;
-    [SerializeField] float lensTransitionTime = 0.25f;
+    [SerializeField] float distortTransitionTime = 0.25f;
+    [SerializeField] float targetHueShift = 37f;
+
     // Sound effects
     [SerializeField] AudioClip timeSlowSound;
     [SerializeField] AudioClip timeFastSound;
 
-    bool active = false;
-    PowerManager powerManager;
-    float lastActivation;
-    public bool activated = false;
     float defaultFixedDeltaTime;
-    LensDistortion lensDistorsion;
+    LensDistortion lensDistortion;
     ChromaticAberration chromaticAberration;
     Vignette vignette;
-    AudioSource audioSource;
+    ColorAdjustments colorAdjustments;
+    [HideInInspector] public IEnumerator runningCoroutine;
 
-    public void Initialize()
+    public override void Initialize()
     {
-        active = true;
+        base.Initialize();
+
         Time.timeScale = 1.0f;
-        activated = false;
-        lastActivation = -(reloadTime + duration);
-        lensDistorsion.intensity.value = 0f;
-        lensDistorsion.scale.value = 1f;
-        chromaticAberration.intensity.value = 0f;
+        lensDistortion.intensity.value = 0f;
+        lensDistortion.scale.value = 1f;
+        chromaticAberration.intensity.value = initialChromaticAberration;
         vignette.intensity.value = 0f;
+        colorAdjustments.hueShift.value = 0f;
     }
 
-    private void Awake()
+    protected override void Awake()
     {
-        powerManager = GetComponent<PowerManager>();
-        audioSource = gameObject.AddComponent<AudioSource>();
+        base.Awake();
+        this.unlocked = true;
     }
 
     void Start()
@@ -52,61 +54,96 @@ public class TimeControl : MonoBehaviour
         Time.timeScale = 1.0f;
         defaultFixedDeltaTime = Time.fixedDeltaTime;
         lastActivation = -(reloadTime+duration);
-        globalVolume.profile.TryGet(out lensDistorsion);
+        globalVolume.profile.TryGet(out lensDistortion);
         globalVolume.profile.TryGet(out chromaticAberration);
         globalVolume.profile.TryGet(out vignette);
+        globalVolume.profile.TryGet(out colorAdjustments);
     }
 
-    void Update()
-    {
-        if (active)
-            ChangeTime();
-    }
+    //void Update()
+    //{
+    //    if (active)
+    //        ChangeTime();
+    //}
+
 
     // Enable/disable slow time
-    private void ChangeTime()
+    protected override void StartPower()
     {
-        if (!activated && Input.GetKeyDown(KeyCode.Space) && (Time.unscaledTime - lastActivation > reloadTime + duration) && powerManager.fullBar)
-        {
-            activated = true;
-            lastActivation = Time.unscaledTime;
-            Time.timeScale = targetTimeScale;
-            Time.fixedDeltaTime = Time.timeScale * defaultFixedDeltaTime;
-            StartCoroutine(DistortLens(lensTransitionTime, targetLensDistorsion, targetLensScale, targetChromaticAberration, 0.7f));
-            powerManager.EmptyBar(duration);
-            audioSource.PlayOneShot(timeSlowSound);
-        }
-        else if (activated && (Time.unscaledTime - lastActivation > duration))
-        {
-            activated = false;
-            Time.timeScale = 1.0f;
-            Time.fixedDeltaTime = defaultFixedDeltaTime;
-            StartCoroutine(DistortLens(lensTransitionTime, 0.0f, 1.0f, 0.0f, 0.0f));
-            powerManager.ReloadBar(reloadTime);
-            audioSource.PlayOneShot(timeFastSound);
-        }
+        Time.timeScale = targetTimeScale;
+        Time.fixedDeltaTime = Time.timeScale * defaultFixedDeltaTime;
+        StartCoroutine(DistortView(distortTransitionTime, targetLensDistorsion, targetLensScale, targetChromaticAberration, 0.7f, targetHueShift));
+        audioSource.PlayOneShot(timeSlowSound);
     }
 
-    // Generic coroutine to progressively enable/disable lens effects
-    IEnumerator DistortLens(float duration, float targetDistortion, float targetScaling, float targetChromaticAberration, float targetVignette)
+    protected override void EndPower()
     {
-        float currentDistorsion = lensDistorsion.intensity.value;
-        float currentScaling = lensDistorsion.scale.value;
+        Time.timeScale = 1.0f;
+        Time.fixedDeltaTime = defaultFixedDeltaTime;
+        StartCoroutine(DistortView(distortTransitionTime, 0f, 1f, 0f, 0f, 0f));
+        audioSource.PlayOneShot(timeFastSound);
+    }
+
+    //// Enable/disable slow time
+    //private void ChangeTime()
+    //{
+    //    if (!activated && isPressed && (Time.unscaledTime - lastActivation > reloadTime + duration) && powerManager.fullBar)
+    //    {
+    //        activated = true;
+    //        lastActivation = Time.unscaledTime;
+    //        Time.timeScale = targetTimeScale;
+    //        Time.fixedDeltaTime = Time.timeScale * defaultFixedDeltaTime;
+    //        StartCoroutine(DistortView(distortTransitionTime, targetLensDistorsion, targetLensScale, targetChromaticAberration, 0.7f, targetHueShift));
+    //        powerManager.EmptyBar(duration);
+    //        audioSource.PlayOneShot(timeSlowSound);
+    //    }
+    //    else if (activated && (Time.unscaledTime - lastActivation > duration))
+    //    {
+    //        activated = false;
+    //        isPressed = false;
+    //        Time.timeScale = 1.0f;
+    //        Time.fixedDeltaTime = defaultFixedDeltaTime;
+    //        StartCoroutine(DistortView(distortTransitionTime, 0f, 1f, 0f, 0f, 0f));
+    //        powerManager.ReloadBar(reloadTime);
+    //        audioSource.PlayOneShot(timeFastSound);
+    //    }
+    //}
+
+    // Generic coroutine to progressively enable/disable lens effects
+    IEnumerator DistortView(float duration, float targetDistortion, float targetScaling, float targetChromaticAberration, float targetVignette, float targetHue)
+    {
+        float currentDistorsion = lensDistortion.intensity.value;
+        float currentScaling = lensDistortion.scale.value;
         float currentChromaticAbberation = chromaticAberration.intensity.value;
         float currentVignette = vignette.intensity.value;
-        
+        float currentHue = colorAdjustments.hueShift.value;
+
         float elapsed = 0f;
         float t;
         while (elapsed < duration)
         {
-            t = 1f - (duration - elapsed) / duration;
-            lensDistorsion.intensity.value = Mathf.Lerp(currentDistorsion, targetDistortion, t);
-            lensDistorsion.scale.value = Mathf.Lerp(currentScaling, targetScaling, t);
+            t = Mathf.Clamp(1f - (duration - elapsed) / duration, 0, 1);
+            if (!powerManager.player.isInvincible) // only modify if player is not invincible to avoid overlap
+            {
+                lensDistortion.intensity.value = Mathf.Lerp(currentDistorsion, targetDistortion, t);
+                lensDistortion.scale.value = Mathf.Lerp(currentScaling, targetScaling, t);
+                colorAdjustments.hueShift.value = Mathf.Lerp(currentHue, targetHue, t);
+            }
             chromaticAberration.intensity.value = Mathf.Lerp(currentChromaticAbberation, targetChromaticAberration, t);
             vignette.intensity.value = Mathf.Lerp(currentVignette, targetVignette, t);
+            
             elapsed += Time.unscaledDeltaTime;
 
             yield return null;
+        }
+
+        if (!powerManager.player.isInvincible) // make sure we reach the correct values if player is not invincible
+        {
+            lensDistortion.intensity.value = targetDistortion;
+            lensDistortion.scale.value = targetScaling;
+            chromaticAberration.intensity.value = targetChromaticAberration;
+            vignette.intensity.value = targetVignette;
+            colorAdjustments.hueShift.value = targetHue;
         }
     }
 }
