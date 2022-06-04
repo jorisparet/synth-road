@@ -1,14 +1,36 @@
+<p align="center">
+<a href="https://github.com/jorisparet/synth-road"><img src="https://github.com/jorisparet/synth-road/blob/main/Repo%20Data/game_title.png" width="400"></a>
+</p>
+
 # Synth Road
 
-Synth Road is an obstacle course mobile game for Android with [synthwave](https://en.wikipedia.org/wiki/Synthwave) vibes.
+*Synth Road* is an obstacle course mobile game for Android with [synthwave](https://en.wikipedia.org/wiki/Synthwave) vibes.
 
 **→ See a short [video presentation](https://www.youtube.com/shorts/HOp4J1BUQdM) on YouTube!**
 
-* Image
-* Image
-* Image
-
 **[*To be published soon on Google Play Store*]**
+
+### Illustrations:
+
+* Main menu:
+
+<img src="https://github.com/jorisparet/synth-road/blob/main/Repo%20Data/image_001_0000.jpg" height="400">
+
+* Slow time power:
+
+<img src="https://github.com/jorisparet/synth-road/blob/main/Repo%20Data/image_001_0162.jpg" height="400">
+
+* Temporary invincibility:
+
+<img src="https://github.com/jorisparet/synth-road/blob/main/Repo%20Data/image_001_0255.jpg" height="400">
+
+* Preferences menu:
+
+<img src="https://github.com/jorisparet/synth-road/blob/main/Repo%20Data/image_001_0957.jpg" height="400">
+
+* Game rules:
+
+<img src="https://github.com/jorisparet/synth-road/blob/main/Repo%20Data/image_001_1151.jpg" height="400">
 
 ## Game rules
 
