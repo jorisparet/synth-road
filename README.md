@@ -8,7 +8,7 @@
 
 **→ See a short [video presentation](https://www.youtube.com/shorts/HOp4J1BUQdM) on YouTube!**
 
-**[*To be published soon on Google Play Store*]**
+**→ Download on the [Play Store](https://play.google.com/store/apps/details?id=com.JorisParet.SynthRoad)!**
 
 ### Illustrations:
 
