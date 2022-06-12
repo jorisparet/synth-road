@@ -1,10 +1,13 @@
 <p align="center">
-<a href="https://github.com/jorisparet/synth-road"><img src="https://github.com/jorisparet/synth-road/blob/main/Repo%20Data/game_title.png" width="400"></a>
+<a href="https://github.com/jorisparet/synth-road"><img src="https://github.com/jorisparet/synth-road/blob/main/Repo%20Data/header.png" width="600"></a>
 </p>
+
+[![Play Store](https://img.shields.io/badge/Play%20Store-download-brightgreen)](https://play.google.com/store/apps/details?id=com.JorisParet.SynthRoad)
+[![YouTube](https://img.shields.io/badge/YouTube-watch-red)](https://www.youtube.com/watch?v=HOp4J1BUQdM)
 
 # Synth Road
 
-*Synth Road* is an obstacle course mobile game for Android with [synthwave](https://en.wikipedia.org/wiki/Synthwave) vibes.
+*Synth Road* is an arcade mobile game of obstacle course for Android with [synthwave](https://en.wikipedia.org/wiki/Synthwave) vibes.
 
 **→ See a short [video presentation](https://youtube.com/watch?v=HOp4J1BUQdM) on YouTube!**
 
