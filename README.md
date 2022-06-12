@@ -6,7 +6,7 @@
 
 *Synth Road* is an obstacle course mobile game for Android with [synthwave](https://en.wikipedia.org/wiki/Synthwave) vibes.
 
-**→ See a short [video presentation](https://www.youtube.com/shorts/HOp4J1BUQdM) on YouTube!**
+**→ See a short [video presentation](https://youtube.com/watch?v=HOp4J1BUQdM) on YouTube!**
 
 **→ Download on the [Play Store](https://play.google.com/store/apps/details?id=com.JorisParet.SynthRoad)!**
 
