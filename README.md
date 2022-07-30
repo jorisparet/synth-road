@@ -49,4 +49,4 @@ Synth Road is made with [Unity](https://unity.com/). Illustrations, music and so
 
 ## Author
 
-[Joris Paret](https://www.linkedin.com/in/joris-paret/)
+[Joris Paret](https://jorisparet.github.io/)
